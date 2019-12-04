@@ -18,7 +18,7 @@ class DetailJokeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       updatUI)
+       updatUI()
     }
     
     func updatUI() {
