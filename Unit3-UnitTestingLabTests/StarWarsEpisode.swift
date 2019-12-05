@@ -28,5 +28,28 @@ class StarWarsEpisode: XCTestCase {
     XCTAssertEqual(expectedCount, episode.count)
        
    }
+    
+    func testFirstEpisodeTitle() {
+        // arrange
+        let expectedTitle = "A New Hope"
+        let firstTitle = getEpisodes().first
+        // act
+        let title = firstTitle?.title
+        // assert
+        XCTAssertEqual(expectedTitle, title)
+    }
 
+}
+
+extension StarWarsEpisode {
+    func getRawDataSW() -> Data {
+           let data = Bundle.readRawJSONData(filename: fileNameStarWars, ext: extStarWars)
+           return data
+       }
+       
+      func getEpisodes() -> [EpisodeData] {
+          let data = getRawDataSW()
+        let episodes = Episode.getEpisode(for: data)
+        return episodes
+      }
 }

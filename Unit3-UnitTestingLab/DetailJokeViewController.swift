@@ -17,16 +17,16 @@ class DetailJokeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       updatUI()
+        updatUI()
     }
     
     func updatUI() {
         guard let joke = jokeWhole else {
             fatalError("jokeWhole is nil, verify prepare for seque")
         }
+        navigationItem.title = joke.setup
         textView.text = joke.punchline
     }
-   
-
+    
+    
 }

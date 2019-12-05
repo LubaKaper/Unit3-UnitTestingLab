@@ -43,6 +43,7 @@ class JokeViewController: UIViewController {
 }
 
 extension JokeViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         allJokesInfo.count
     }
@@ -51,8 +52,11 @@ extension JokeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "jokeCell", for: indexPath)
         let allJokes = allJokesInfo[indexPath.row]
         cell.textLabel?.text = allJokes.setup
+        cell.textLabel?.numberOfLines = 0
         return cell
         
     }
+    
+    
 }
 
